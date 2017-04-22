@@ -1,0 +1,52 @@
+<svg height="782" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="782" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">  0.  2017-04-22 15:14:04 +0000   634105 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-22 15:14:04 +0000     1401 bytes  CONTRIBUTING.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-22 15:14:04 +0000    11357 bytes  LICENSE</tspan>
+<tspan x="10" y="74">  3.  2017-04-22 15:14:04 +0000      242 bytes  NOTICE</tspan>
+<tspan x="10" y="90">  4.  2017-04-22 15:14:04 +0000    23532 bytes  README.md</tspan>
+<tspan x="10" y="106">  5.  2017-04-22 15:14:04 +0000    24929 bytes  RELEASENOTES.md</tspan>
+<tspan x="10" y="122">  6.  2017-04-22 15:14:04 +0000    12506 bytes  doc/de/README.md</tspan>
+<tspan x="10" y="138">  7.  2017-04-22 15:14:04 +0000    11801 bytes  doc/de/index.md</tspan>
+<tspan x="10" y="154">  8.  2017-04-22 15:14:04 +0000    12509 bytes  doc/es/README.md</tspan>
+<tspan x="10" y="170">  9.  2017-04-22 15:14:04 +0000    11683 bytes  doc/es/index.md</tspan>
+<tspan x="10" y="186"> 10.  2017-04-22 15:14:04 +0000    12881 bytes  doc/fr/README.md</tspan>
+<tspan x="10" y="202"> 11.  2017-04-22 15:14:04 +0000    12208 bytes  doc/fr/index.md</tspan>
+<tspan x="10" y="218"> 12.  2017-04-22 15:14:04 +0000    12456 bytes  doc/it/README.md</tspan>
+<tspan x="10" y="234"> 13.  2017-04-22 15:14:04 +0000    11719 bytes  doc/it/index.md</tspan>
+<tspan x="10" y="250"> 14.  2017-04-22 15:14:04 +0000    14123 bytes  doc/ja/README.md</tspan>
+<tspan x="10" y="266"> 15.  2017-04-22 15:14:04 +0000    13272 bytes  doc/ja/index.md</tspan>
+<tspan x="10" y="282"> 16.  2017-04-22 15:14:04 +0000    12499 bytes  doc/ko/README.md</tspan>
+<tspan x="10" y="298"> 17.  2017-04-22 15:14:04 +0000    11794 bytes  doc/ko/index.md</tspan>
+<tspan x="10" y="314"> 18.  2017-04-22 15:14:04 +0000    12185 bytes  doc/pl/README.md</tspan>
+<tspan x="10" y="330"> 19.  2017-04-22 15:14:04 +0000    11521 bytes  doc/pl/index.md</tspan>
+<tspan x="10" y="346"> 20.  2017-04-22 15:14:04 +0000    14412 bytes  doc/ru/index.md</tspan>
+<tspan x="10" y="362"> 21.  2017-04-22 15:14:04 +0000    11537 bytes  doc/zh/README.md</tspan>
+<tspan x="10" y="378"> 22.  2017-04-22 15:14:04 +0000    10896 bytes  doc/zh/index.md</tspan>
+<tspan x="10" y="394"> 23.  2017-04-22 15:14:04 +0000     1279 bytes  package.json</tspan>
+<tspan x="10" y="410"> 24.  2017-04-22 15:14:04 +0000     6436 bytes  plugin.xml</tspan>
+<tspan x="10" y="426"> 25.  2017-04-22 15:14:04 +0000    42090 bytes  src/amazon/FileTransfer.java</tspan>
+<tspan x="10" y="442"> 26.  2017-04-22 15:14:04 +0000     2032 bytes  src/android/FileProgressResult.java</tspan>
+<tspan x="10" y="458"> 27.  2017-04-22 15:14:04 +0000    48101 bytes  src/android/FileTransfer.java</tspan>
+<tspan x="10" y="474"> 28.  2017-04-22 15:14:04 +0000     2270 bytes  src/android/FileUploadResult.java</tspan>
+<tspan x="10" y="490"> 29.  2017-04-22 15:14:04 +0000     3492 bytes  src/ios/CDVFileTransfer.h</tspan>
+<tspan x="10" y="506"> 30.  2017-04-22 15:14:04 +0000    37538 bytes  src/ios/CDVFileTransfer.m</tspan>
+<tspan x="10" y="522"> 31.  2017-04-22 15:14:04 +0000     9376 bytes  src/ubuntu/file-transfer.cpp</tspan>
+<tspan x="10" y="538"> 32.  2017-04-22 15:14:04 +0000     2935 bytes  src/ubuntu/file-transfer.h</tspan>
+<tspan x="10" y="554"> 33.  2017-04-22 15:14:04 +0000    26932 bytes  src/windows/FileTransferProxy.js</tspan>
+<tspan x="10" y="570"> 34.  2017-04-22 15:14:04 +0000    43351 bytes  src/wp/FileTransfer.cs</tspan>
+<tspan x="10" y="586"> 35.  2017-04-22 15:14:04 +0000     3050 bytes  tests/hooks/after_prepare.js</tspan>
+<tspan x="10" y="602"> 36.  2017-04-22 15:14:04 +0000     1336 bytes  tests/plugin.xml</tspan>
+<tspan x="10" y="618"> 37.  2017-04-22 15:14:04 +0000    74056 bytes  tests/tests.js</tspan>
+<tspan x="10" y="634"> 38.  2017-04-22 15:14:04 +0000     6185 bytes  types/index.d.ts</tspan>
+<tspan x="10" y="650"> 39.  2017-04-22 15:14:04 +0000     8466 bytes  www/FileTransfer.js</tspan>
+<tspan x="10" y="666"> 40.  2017-04-22 15:14:04 +0000     1381 bytes  www/FileTransferError.js</tspan>
+<tspan x="10" y="682"> 41.  2017-04-22 15:14:04 +0000     6557 bytes  www/blackberry10/FileTransfer.js</tspan>
+<tspan x="10" y="698"> 42.  2017-04-22 15:14:04 +0000     1188 bytes  www/blackberry10/FileTransferProxy.js</tspan>
+<tspan x="10" y="714"> 43.  2017-04-22 15:14:04 +0000    10459 bytes  www/blackberry10/xhrFileTransfer.js</tspan>
+<tspan x="10" y="730"> 44.  2017-04-22 15:14:04 +0000    12849 bytes  www/browser/FileTransfer.js</tspan>
+<tspan x="10" y="746"> 45.  2017-04-22 15:14:04 +0000     8394 bytes  www/firefoxos/FileTransferProxy.js</tspan>
+<tspan x="10" y="762"> 46.  2017-04-22 15:14:04 +0000     2889 bytes  www/wp7/base64.js</tspan>
+</text>
+</svg>

@@ -1,0 +1,1964 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-npmtest-cordova-plugin-file-transfer/node_modules/cordova-plugin-file-transfer/src/windows/FileTransferProxy.js</title>
+    <meta charset="utf-8">
+    <style>
+        body, html {
+            margin:0; padding: 0;
+        }
+        body {
+            font-family: Arial, Helvetica;
+            font-size: 10pt;
+        }
+        div.header, div.footer {
+            background: #eee;
+            padding: 1em;
+        }
+        div.header {
+            height: 160px;
+            padding: 0 1em 0 1em;
+            z-index: 100;
+            position: fixed;
+            top: 0;
+            border-bottom: 1px solid #666;
+            width: 100%;
+        }
+        div.footer {
+            border-top: 1px solid #666;
+        }
+        div.body {
+            margin-top: 170px;
+        }
+        div.meta {
+            font-size: 90%;
+            text-align: center;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        h1 {
+            font-size: 12pt;
+        }
+        h2 {
+            font-size: 10pt;
+        }
+        pre {
+            font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            tab-size: 2;
+        }
+
+        div.path { font-size: 110%; }
+        div.path a:link, div.path a:visited { color: #000; }
+        table.coverage { border-collapse: collapse; margin:0; padding: 0 }
+
+        table.coverage td {
+            margin: 0;
+            padding: 0;
+            color: #111;
+            vertical-align: top;
+        }
+        table.coverage td.line-count {
+            width: 50px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        table.coverage td.line-coverage {
+            color: #777 !important;
+            text-align: right;
+            border-left: 1px solid #666;
+            border-right: 1px solid #666;
+        }
+
+        table.coverage td.text {
+        }
+
+        table.coverage td span.cline-any {
+            display: inline-block;
+            padding: 0 5px;
+            width: 40px;
+        }
+        table.coverage td span.cline-neutral {
+            background: #eee;
+        }
+        table.coverage td span.cline-yes {
+            background: #b5d592;
+            color: #999;
+        }
+        table.coverage td span.cline-no {
+            background: #fc8c84;
+        }
+
+        .cstat-yes { color: #111; }
+        .cstat-no { background: #fc8c84; color: #111; }
+        .fstat-no { background: #ffc520; color: #111 !important; }
+        .cbranch-no { background:  yellow !important; color: #111; }
+
+        .cstat-skip { background: #ddd; color: #111; }
+        .fstat-skip { background: #ddd; color: #111 !important; }
+        .cbranch-skip { background: #ddd !important; color: #111; }
+
+        .missing-if-branch {
+            display: inline-block;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: black;
+            color: yellow;
+        }
+
+        .skip-if-branch {
+            display: none;
+            margin-right: 10px;
+            position: relative;
+            padding: 0 4px;
+            background: #ccc;
+            color: white;
+        }
+
+        .missing-if-branch .typ, .skip-if-branch .typ {
+            color: inherit !important;
+        }
+
+        .entity, .metric { font-weight: bold; }
+        .metric { display: inline-block; border: 1px solid #333; padding: 0.3em; background: white; }
+        .metric small { font-size: 80%; font-weight: normal; color: #666; }
+
+        div.coverage-summary table { border-collapse: collapse; margin: 3em; font-size: 110%; }
+        div.coverage-summary td, div.coverage-summary table  th { margin: 0; padding: 0.25em 1em; border-top: 1px solid #666; border-bottom: 1px solid #666; }
+        div.coverage-summary th { text-align: left; border: 1px solid #666; background: #eee; font-weight: normal; }
+        div.coverage-summary th.file { border-right: none !important; }
+        div.coverage-summary th.pic { border-left: none !important; text-align: right; }
+        div.coverage-summary th.pct { border-right: none !important; }
+        div.coverage-summary th.abs { border-left: none !important; text-align: right; }
+        div.coverage-summary td.pct { text-align: right; border-left: 1px solid #666; }
+        div.coverage-summary td.abs { text-align: right; font-size: 90%; color: #444; border-right: 1px solid #666; }
+        div.coverage-summary td.file { text-align: right; border-left: 1px solid #666; white-space: nowrap;  }
+        div.coverage-summary td.pic { min-width: 120px !important;  }
+        div.coverage-summary a:link { color: #000; }
+        div.coverage-summary a:visited { color: #333; }
+        div.coverage-summary tfoot td { border-top: 1px solid #666; }
+
+        div.coverage-summary .yui3-datatable-sort-indicator, div.coverage-summary .dummy-sort-indicator {
+            height: 10px;
+            width: 7px;
+            display: inline-block;
+            margin-left: 0.5em;
+        }
+        div.coverage-summary .yui3-datatable-sort-indicator {
+            background: no-repeat scroll 0 0 transparent;
+        }
+        div.coverage-summary .yui3-datatable-sorted .yui3-datatable-sort-indicator {
+            background-position: 0 -20px;
+        }
+        div.coverage-summary .yui3-datatable-sorted-desc .yui3-datatable-sort-indicator {
+            background-position: 0 -10px;
+        }
+
+        .high { background: #b5d592 !important; }
+        .medium { background: #ffe87c !important; }
+        .low { background: #fc8c84 !important; }
+
+        span.cover-fill, span.cover-empty {
+            display:inline-block;
+            border:1px solid #444;
+            background: white;
+            height: 12px;
+        }
+        span.cover-fill {
+            background: #ccc;
+            border-right: 1px solid #444;
+        }
+        span.cover-empty {
+            background: white;
+            border-left: none;
+        }
+        span.cover-full {
+            border-right: none !important;
+        }
+        pre.prettyprint {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .com { color: #999 !important; }
+        .ignore-none { color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1 style="font-weight: bold;">
+        <a href="https://github.com/npmtest/node-npmtest-cordova-plugin-file-transfer">npmtest-cordova-plugin-file-transfer (v0.0.1)</a>
+    </h1>
+    <h1>Code coverage report for <span class="entity">node-npmtest-cordova-plugin-file-transfer/node_modules/cordova-plugin-file-transfer/src/windows/FileTransferProxy.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">2.55% <small>(7 / 274)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 98)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">0% <small>(0 / 39)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">2.55% <small>(7 / 274)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">node-npmtest-cordova-plugin-file-transfer/node_modules/cordova-plugin-file-transfer/src/windows/</a> &#187; FileTransferProxy.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+*/
+&nbsp;
+/*jshint -W030 */
+/*global Windows, WinJS*/
+/*global module, require*/
+&nbsp;
+var FTErr = require('./FileTransferError'),
+    ProgressEvent = require('cordova-plugin-file.ProgressEvent'),
+    FileUploadResult = require('cordova-plugin-file.FileUploadResult'),
+    FileProxy = require('cordova-plugin-file.FileProxy');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >var appData = Windows.Storage.ApplicationData.current;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >var LINE_START = "--";</span>
+<span class="cstat-no" title="statement not covered" >var LINE_END = "\r\n";</span>
+<span class="cstat-no" title="statement not covered" >var BOUNDARY = '+++++';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >var fileTransferOps = [];</span>
+&nbsp;
+// Some private helper functions, hidden by the module
+<span class="fstat-no" title="function not covered" >function cordovaPathToNative(path) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var cleanPath = String(path);</span>
+    // turn / into \\
+<span class="cstat-no" title="statement not covered" >    cleanPath = cleanPath.replace(/\//g, '\\');</span>
+    // turn  \\ into \
+<span class="cstat-no" title="statement not covered" >    cleanPath = cleanPath.replace(/\\\\/g, '\\');</span>
+    // strip end \\ characters
+<span class="cstat-no" title="statement not covered" >    cleanPath = cleanPath.replace(/\\+$/g, '');</span>
+<span class="cstat-no" title="statement not covered" >    return cleanPath;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function nativePathToCordova(path) {</span>
+<span class="cstat-no" title="statement not covered" >    return String(path).replace(/\\/g, '/');</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function alreadyCancelled(opId) {</span>
+<span class="cstat-no" title="statement not covered" >    var op = fileTransferOps[opId];</span>
+<span class="cstat-no" title="statement not covered" >    return op &amp;&amp; op.state === FileTransferOperation.CANCELLED;</span>
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function doUpload (upload, uploadId, filePath, server, successCallback, errorCallback) {</span>
+<span class="cstat-no" title="statement not covered" >    if (alreadyCancelled(uploadId)) {</span>
+<span class="cstat-no" title="statement not covered" >        errorCallback(new FTErr(FTErr.ABORT_ERR, nativePathToCordova(filePath), server));</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+    }
+&nbsp;
+    // update internal TransferOperation object with newly created promise
+<span class="cstat-no" title="statement not covered" >    var uploadOperation = upload.startAsync();</span>
+<span class="cstat-no" title="statement not covered" >    fileTransferOps[uploadId].promise = uploadOperation;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    uploadOperation.then(</span>
+<span class="fstat-no" title="function not covered" >        function (result) {</span>
+            // Update TransferOperation object with new state, delete promise property
+            // since it is not actual anymore
+<span class="cstat-no" title="statement not covered" >            var currentUploadOp = fileTransferOps[uploadId];</span>
+<span class="cstat-no" title="statement not covered" >            if (currentUploadOp) {</span>
+<span class="cstat-no" title="statement not covered" >                currentUploadOp.state = FileTransferOperation.DONE;</span>
+<span class="cstat-no" title="statement not covered" >                currentUploadOp.promise = null;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var response = result.getResponseInformation();</span>
+<span class="cstat-no" title="statement not covered" >            var ftResult = new FileUploadResult(result.progress.bytesSent, response.statusCode, '');</span>
+&nbsp;
+            // if server's response doesn't contain any data, then resolve operation now
+<span class="cstat-no" title="statement not covered" >            if (result.progress.bytesReceived === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                successCallback(ftResult);</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            // otherwise create a data reader, attached to response stream to get server's response
+<span class="cstat-no" title="statement not covered" >            var reader = new Windows.Storage.Streams.DataReader(result.getResultStreamAt(0));</span>
+<span class="cstat-no" title="statement not covered" >            reader.loadAsync(result.progress.bytesReceived).then(<span class="fstat-no" title="function not covered" >function (size) {</span></span>
+<span class="cstat-no" title="statement not covered" >                ftResult.response = reader.readString(size);</span>
+<span class="cstat-no" title="statement not covered" >                successCallback(ftResult);</span>
+<span class="cstat-no" title="statement not covered" >                reader.close();</span>
+            });
+        },
+<span class="fstat-no" title="function not covered" >        function (error) {</span>
+<span class="cstat-no" title="statement not covered" >            var source = nativePathToCordova(filePath);</span>
+&nbsp;
+            // Handle download error here.
+            // Wrap this routines into promise due to some async methods
+<span class="cstat-no" title="statement not covered" >            var getTransferError = new WinJS.Promise(<span class="fstat-no" title="function not covered" >function (resolve) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (error.message === 'Canceled') {</span>
+                    // If download was cancelled, message property will be specified
+<span class="cstat-no" title="statement not covered" >                    resolve(new FTErr(FTErr.ABORT_ERR, source, server, null, null, error));</span>
+                } else {
+                    // in the other way, try to get response property
+<span class="cstat-no" title="statement not covered" >                    var response = upload.getResponseInformation();</span>
+<span class="cstat-no" title="statement not covered" >                    if (!response) {</span>
+<span class="cstat-no" title="statement not covered" >                        resolve(new FTErr(FTErr.CONNECTION_ERR, source, server));</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        var reader = new Windows.Storage.Streams.DataReader(upload.getResultStreamAt(0));</span>
+<span class="cstat-no" title="statement not covered" >                        reader.loadAsync(upload.progress.bytesReceived).then(<span class="fstat-no" title="function not covered" >function (size) {</span></span>
+<span class="cstat-no" title="statement not covered" >                            var responseText = reader.readString(size);</span>
+<span class="cstat-no" title="statement not covered" >                            resolve(new FTErr(FTErr.FILE_NOT_FOUND_ERR, source, server, response.statusCode, responseText, error));</span>
+<span class="cstat-no" title="statement not covered" >                            reader.close();</span>
+                        });
+                    }
+                }
+            });
+&nbsp;
+            // Update TransferOperation object with new state, delete promise property
+            // since it is not actual anymore
+<span class="cstat-no" title="statement not covered" >            var currentUploadOp = fileTransferOps[uploadId];</span>
+<span class="cstat-no" title="statement not covered" >            if (currentUploadOp) {</span>
+<span class="cstat-no" title="statement not covered" >                currentUploadOp.state = FileTransferOperation.CANCELLED;</span>
+<span class="cstat-no" title="statement not covered" >                currentUploadOp.promise = null;</span>
+            }
+&nbsp;
+            // Report the upload error back
+<span class="cstat-no" title="statement not covered" >            getTransferError.then(<span class="fstat-no" title="function not covered" >function (transferError) {</span></span>
+<span class="cstat-no" title="statement not covered" >                errorCallback(transferError);</span>
+            });
+        },
+<span class="fstat-no" title="function not covered" >        function (evt) {</span>
+<span class="cstat-no" title="statement not covered" >            var progressEvent = new ProgressEvent('progress', {</span>
+                loaded: evt.progress.bytesSent,
+                total: evt.progress.totalBytesToSend,
+                target: evt.resultFile
+            });
+<span class="cstat-no" title="statement not covered" >            progressEvent.lengthComputable = true;</span>
+<span class="cstat-no" title="statement not covered" >            successCallback(progressEvent, { keepCallback: true });</span>
+        }
+    );
+}
+&nbsp;
+<span class="fstat-no" title="function not covered" >function FileTransferOperation(state, promise) {</span>
+<span class="cstat-no" title="statement not covered" >    this.state = state;</span>
+<span class="cstat-no" title="statement not covered" >    this.promise = promise;</span>
+}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >FileTransferOperation.PENDING = 0;</span>
+<span class="cstat-no" title="statement not covered" >FileTransferOperation.DONE = 1;</span>
+<span class="cstat-no" title="statement not covered" >FileTransferOperation.CANCELLED = 2;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >var HTTP_E_STATUS_NOT_MODIFIED = -2145844944;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >module.exports = {</span>
+&nbsp;
+/*
+exec(win, fail, 'FileTransfer', 'upload', 
+[filePath, server, fileKey, fileName, mimeType, params, trustAllHosts, chunkedMode, headers, this._id, httpMethod]);
+*/
+    upload: <span class="fstat-no" title="function not covered" >function (successCallback, errorCallback, options) {</span>
+<span class="cstat-no" title="statement not covered" >        var filePath = options[0];</span>
+<span class="cstat-no" title="statement not covered" >        var server = options[1];</span>
+<span class="cstat-no" title="statement not covered" >        var fileKey = options[2] || 'source';</span>
+<span class="cstat-no" title="statement not covered" >        var fileName = options[3];</span>
+<span class="cstat-no" title="statement not covered" >        var mimeType = options[4];</span>
+<span class="cstat-no" title="statement not covered" >        var params = options[5];</span>
+        // var trustAllHosts = options[6]; // todo
+        // var chunkedMode = options[7]; // todo 
+<span class="cstat-no" title="statement not covered" >        var headers = options[8] || {};</span>
+<span class="cstat-no" title="statement not covered" >        var uploadId = options[9];</span>
+<span class="cstat-no" title="statement not covered" >        var httpMethod = options[10];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var isMultipart = typeof headers["Content-Type"] === 'undefined';</span>
+&nbsp;
+<span class="fstat-no" title="function not covered" >        function stringToByteArray(str) {</span>
+<span class="cstat-no" title="statement not covered" >            var byteCharacters = atob(str);</span>
+<span class="cstat-no" title="statement not covered" >            var byteNumbers = new Array(byteCharacters.length);</span>
+<span class="cstat-no" title="statement not covered" >            for (var i = 0; i &lt; byteCharacters.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                byteNumbers[i] = byteCharacters.charCodeAt(i);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            return new Uint8Array(byteNumbers);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!filePath || (typeof filePath !== 'string')) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR, null, server));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (filePath.indexOf("data:") === 0 &amp;&amp; filePath.indexOf("base64") !== -1) {</span>
+            // First a DataWriter object is created, backed by an in-memory stream where 
+            // the data will be stored.
+<span class="cstat-no" title="statement not covered" >            var writer = Windows.Storage.Streams.DataWriter(new Windows.Storage.Streams.InMemoryRandomAccessStream());</span>
+<span class="cstat-no" title="statement not covered" >            writer.unicodeEncoding = Windows.Storage.Streams.UnicodeEncoding.utf8;</span>
+<span class="cstat-no" title="statement not covered" >            writer.byteOrder = Windows.Storage.Streams.ByteOrder.littleEndian;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var commaIndex = filePath.indexOf(",");</span>
+<span class="cstat-no" title="statement not covered" >            if (commaIndex === -1) {</span>
+<span class="cstat-no" title="statement not covered" >                errorCallback(new FTErr(FTErr.INVALID_URL_ERR, fileName, server, null, null, "No comma in data: URI"));</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            // Create internal download operation object
+<span class="cstat-no" title="statement not covered" >            fileTransferOps[uploadId] = new FileTransferOperation(FileTransferOperation.PENDING, null);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var fileDataString = filePath.substr(commaIndex + 1);</span>
+&nbsp;
+            // setting request headers for uploader
+<span class="cstat-no" title="statement not covered" >            var uploader = new Windows.Networking.BackgroundTransfer.BackgroundUploader();</span>
+<span class="cstat-no" title="statement not covered" >            uploader.method = httpMethod;</span>
+<span class="cstat-no" title="statement not covered" >            for (var header in headers) {</span>
+<span class="cstat-no" title="statement not covered" >                if (headers.hasOwnProperty(header)) {</span>
+<span class="cstat-no" title="statement not covered" >                    uploader.setRequestHeader(header, headers[header]);</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (isMultipart) {</span>
+                // adding params supplied to request payload
+<span class="cstat-no" title="statement not covered" >                var multipartParams = '';</span>
+<span class="cstat-no" title="statement not covered" >                for (var key in params) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (params.hasOwnProperty(key)) {</span>
+<span class="cstat-no" title="statement not covered" >                        multipartParams += LINE_START + BOUNDARY + LINE_END;</span>
+<span class="cstat-no" title="statement not covered" >                        multipartParams += "Content-Disposition: form-data; name=\"" + key + "\"";</span>
+<span class="cstat-no" title="statement not covered" >                        multipartParams += LINE_END + LINE_END;</span>
+<span class="cstat-no" title="statement not covered" >                        multipartParams += params[key];</span>
+<span class="cstat-no" title="statement not covered" >                        multipartParams += LINE_END;</span>
+                    }
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var multipartFile = LINE_START + BOUNDARY + LINE_END;</span>
+<span class="cstat-no" title="statement not covered" >                multipartFile += "Content-Disposition: form-data; name=\"file\";";</span>
+<span class="cstat-no" title="statement not covered" >                multipartFile += " filename=\"" + fileName + "\"" + LINE_END;</span>
+<span class="cstat-no" title="statement not covered" >                multipartFile += "Content-Type: " + mimeType + LINE_END + LINE_END;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var bound = LINE_END + LINE_START + BOUNDARY + LINE_START + LINE_END;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                uploader.setRequestHeader("Content-Type", "multipart/form-data; boundary=" + BOUNDARY);</span>
+<span class="cstat-no" title="statement not covered" >                writer.writeString(multipartParams);</span>
+<span class="cstat-no" title="statement not covered" >                writer.writeString(multipartFile);</span>
+<span class="cstat-no" title="statement not covered" >                writer.writeBytes(stringToByteArray(fileDataString));</span>
+<span class="cstat-no" title="statement not covered" >                writer.writeString(bound);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                writer.writeBytes(stringToByteArray(fileDataString));</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var stream;</span>
+&nbsp;
+            // The call to store async sends the actual contents of the writer 
+            // to the backing stream.
+<span class="cstat-no" title="statement not covered" >            writer.storeAsync().then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+                // For the in-memory stream implementation we are using, the flushAsync call 
+                // is superfluous, but other types of streams may require it.
+<span class="cstat-no" title="statement not covered" >                return writer.flushAsync();</span>
+            }).then(<span class="fstat-no" title="function not covered" >function () {</span>
+                // We detach the stream to prolong its useful lifetime. Were we to fail 
+                // to detach the stream, the call to writer.close() would close the underlying 
+                // stream, preventing its subsequent use by the DataReader below. Most clients 
+                // of DataWriter will have no reason to use the underlying stream after 
+                // writer.close() is called, and will therefore have no reason to call
+                // writer.detachStream(). Note that once we detach the stream, we assume 
+                // responsibility for closing the stream subsequently; after the stream 
+                // has been detached, a call to writer.close() will have no effect on the stream.
+<span class="cstat-no" title="statement not covered" >                stream = writer.detachStream();</span>
+                // Make sure the stream is read from the beginning in the reader 
+                // we are creating below.
+<span class="cstat-no" title="statement not covered" >                stream.seek(0);</span>
+                // Most DataWriter clients will not call writer.detachStream(), 
+                // and furthermore will be working with a file-backed or network-backed stream, 
+                // rather than an in-memory-stream. In such cases, it would be particularly 
+                // important to call writer.close(). Doing so is always a best practice.
+<span class="cstat-no" title="statement not covered" >                writer.close();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (alreadyCancelled(uploadId)) {</span>
+<span class="cstat-no" title="statement not covered" >                    errorCallback(new FTErr(FTErr.ABORT_ERR, nativePathToCordova(filePath), server));</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+                // create download object. This will throw an exception if URL is malformed
+<span class="cstat-no" title="statement not covered" >                var uri = new Windows.Foundation.Uri(server);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var createUploadOperation;</span>
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                    createUploadOperation = uploader.createUploadFromStreamAsync(uri, stream);</span>
+                } catch (e) {
+<span class="cstat-no" title="statement not covered" >                    errorCallback(new FTErr(FTErr.INVALID_URL_ERR));</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                createUploadOperation.then(</span>
+<span class="fstat-no" title="function not covered" >                    function (upload) {</span>
+<span class="cstat-no" title="statement not covered" >                        doUpload(upload, uploadId, filePath, server, successCallback, errorCallback);</span>
+                    },
+<span class="fstat-no" title="function not covered" >                    function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                        var errorObj = new FTErr(FTErr.INVALID_URL_ERR);</span>
+<span class="cstat-no" title="statement not covered" >                        errorObj.exception = err;</span>
+<span class="cstat-no" title="statement not covered" >                        errorCallback(errorObj);</span>
+                    });
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (filePath.substr(0, 8) === "file:///") {</span>
+<span class="cstat-no" title="statement not covered" >            filePath = appData.localFolder.path + filePath.substr(8).split("/").join("\\");</span>
+        } else <span class="cstat-no" title="statement not covered" >if (filePath.indexOf('ms-appdata:///') === 0) {</span>
+            // Handle 'ms-appdata' scheme
+<span class="cstat-no" title="statement not covered" >            filePath = filePath.replace('ms-appdata:///local', appData.localFolder.path)</span>
+                               .replace('ms-appdata:///temp', appData.temporaryFolder.path);
+        } else <span class="cstat-no" title="statement not covered" >if (filePath.indexOf('cdvfile://') === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            filePath = filePath.replace('cdvfile://localhost/persistent', appData.localFolder.path)</span>
+                               .replace('cdvfile://localhost/temporary', appData.temporaryFolder.path);
+        }
+&nbsp;
+        // normalize path separators
+<span class="cstat-no" title="statement not covered" >        filePath = cordovaPathToNative(filePath);</span>
+&nbsp;
+        // Create internal download operation object
+<span class="cstat-no" title="statement not covered" >        fileTransferOps[uploadId] = new FileTransferOperation(FileTransferOperation.PENDING, null);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        Windows.Storage.StorageFile.getFileFromPathAsync(filePath)</span>
+        .then(<span class="fstat-no" title="function not covered" >function (storageFile) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!fileName) {</span>
+<span class="cstat-no" title="statement not covered" >                fileName = storageFile.name;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (!mimeType) {</span>
+                // use the actual content type of the file, probably this should be the default way.
+                // other platforms probably can't look this up.
+<span class="cstat-no" title="statement not covered" >                mimeType = storageFile.contentType;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (alreadyCancelled(uploadId)) {</span>
+<span class="cstat-no" title="statement not covered" >                errorCallback(new FTErr(FTErr.ABORT_ERR, nativePathToCordova(filePath), server));</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+            // setting request headers for uploader
+<span class="cstat-no" title="statement not covered" >            var uploader = new Windows.Networking.BackgroundTransfer.BackgroundUploader();</span>
+<span class="cstat-no" title="statement not covered" >            uploader.method = httpMethod;</span>
+<span class="cstat-no" title="statement not covered" >            for (var header in headers) {</span>
+<span class="cstat-no" title="statement not covered" >                if (headers.hasOwnProperty(header)) {</span>
+<span class="cstat-no" title="statement not covered" >                    uploader.setRequestHeader(header, headers[header]);</span>
+                }
+            }
+&nbsp;
+            // create download object. This will throw an exception if URL is malformed
+<span class="cstat-no" title="statement not covered" >            var uri = new Windows.Foundation.Uri(server);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var createUploadOperation;</span>
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                if (isMultipart) {</span>
+                    // adding params supplied to request payload
+<span class="cstat-no" title="statement not covered" >                    var transferParts = [];</span>
+<span class="cstat-no" title="statement not covered" >                    for (var key in params) {</span>
+                        // Create content part for params only if value is specified because CreateUploadAsync fails otherwise
+<span class="cstat-no" title="statement not covered" >                        if (params.hasOwnProperty(key) &amp;&amp; params[key] !== null &amp;&amp; params[key] !== undefined &amp;&amp; params[key].toString() !== "") {</span>
+<span class="cstat-no" title="statement not covered" >                            var contentPart = new Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart();</span>
+<span class="cstat-no" title="statement not covered" >                            contentPart.setHeader("Content-Disposition", "form-data; name=\"" + key + "\"");</span>
+<span class="cstat-no" title="statement not covered" >                            contentPart.setText(params[key]);</span>
+<span class="cstat-no" title="statement not covered" >                            transferParts.push(contentPart);</span>
+                        }
+                    }
+&nbsp;
+                    // Adding file to upload to request payload
+<span class="cstat-no" title="statement not covered" >                    var fileToUploadPart = new Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart(fileKey, fileName);</span>
+<span class="cstat-no" title="statement not covered" >                    fileToUploadPart.setHeader("Content-Type", mimeType);</span>
+<span class="cstat-no" title="statement not covered" >                    fileToUploadPart.setFile(storageFile);</span>
+<span class="cstat-no" title="statement not covered" >                    transferParts.push(fileToUploadPart);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    createUploadOperation = uploader.createUploadAsync(uri, transferParts);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    createUploadOperation = WinJS.Promise.wrap(uploader.createUpload(uri, storageFile));</span>
+                }
+            } catch (e) {
+<span class="cstat-no" title="statement not covered" >                errorCallback(new FTErr(FTErr.INVALID_URL_ERR));</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            createUploadOperation.then(</span>
+<span class="fstat-no" title="function not covered" >                function (upload) {</span>
+<span class="cstat-no" title="statement not covered" >                    doUpload(upload, uploadId, filePath, server, successCallback, errorCallback);</span>
+                },
+<span class="fstat-no" title="function not covered" >                function (err) {</span>
+<span class="cstat-no" title="statement not covered" >                    var errorObj = new FTErr(FTErr.INVALID_URL_ERR);</span>
+<span class="cstat-no" title="statement not covered" >                    errorObj.exception = err;</span>
+<span class="cstat-no" title="statement not covered" >                    errorCallback(errorObj);</span>
+                }
+            );
+        }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR, fileName, server, null, null, err));</span>
+        });
+    },
+&nbsp;
+    // [source, target, trustAllHosts, id, headers]
+    download:<span class="fstat-no" title="function not covered" >function(successCallback, errorCallback, options) {</span>
+<span class="cstat-no" title="statement not covered" >        var source = options[0];</span>
+<span class="cstat-no" title="statement not covered" >        var target = options[1];</span>
+<span class="cstat-no" title="statement not covered" >        var downloadId = options[3];</span>
+<span class="cstat-no" title="statement not covered" >        var headers = options[4] || {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!target) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (target.substr(0, 8) === "file:///") {</span>
+<span class="cstat-no" title="statement not covered" >            target = appData.localFolder.path + target.substr(8).split("/").join("\\");</span>
+        } else <span class="cstat-no" title="statement not covered" >if (target.indexOf('ms-appdata:///') === 0) {</span>
+            // Handle 'ms-appdata' scheme
+<span class="cstat-no" title="statement not covered" >            target = target.replace('ms-appdata:///local', appData.localFolder.path)</span>
+                           .replace('ms-appdata:///temp', appData.temporaryFolder.path);
+        } else <span class="cstat-no" title="statement not covered" >if (target.indexOf('cdvfile://') === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            target = target.replace('cdvfile://localhost/persistent', appData.localFolder.path)</span>
+                           .replace('cdvfile://localhost/temporary', appData.temporaryFolder.path);
+        }
+<span class="cstat-no" title="statement not covered" >        target = cordovaPathToNative(target);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var path = target.substr(0, target.lastIndexOf("\\"));</span>
+<span class="cstat-no" title="statement not covered" >        var fileName = target.substr(target.lastIndexOf("\\") + 1);</span>
+<span class="cstat-no" title="statement not covered" >        if (path === null || fileName === null) {</span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+        // Download to a temp file to avoid the file deletion on 304 
+        // CB-7006 Empty file is created on file transfer if server response is 304
+<span class="cstat-no" title="statement not covered" >        var tempFileName = '~' + fileName;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var download = null;</span>
+&nbsp;
+        // Create internal download operation object
+<span class="cstat-no" title="statement not covered" >        fileTransferOps[downloadId] = new FileTransferOperation(FileTransferOperation.PENDING, null);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var downloadCallback = <span class="fstat-no" title="function not covered" >function(storageFolder) {</span></span>
+<span class="cstat-no" title="statement not covered" >            storageFolder.createFileAsync(tempFileName, Windows.Storage.CreationCollisionOption.replaceExisting).then(<span class="fstat-no" title="function not covered" >function (storageFile) {</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (alreadyCancelled(downloadId)) {</span>
+<span class="cstat-no" title="statement not covered" >                    errorCallback(new FTErr(FTErr.ABORT_ERR, source, target));</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+                // if download isn't cancelled, contunue with creating and preparing download operation
+<span class="cstat-no" title="statement not covered" >                var downloader = new Windows.Networking.BackgroundTransfer.BackgroundDownloader();</span>
+<span class="cstat-no" title="statement not covered" >                for (var header in headers) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (headers.hasOwnProperty(header)) {</span>
+<span class="cstat-no" title="statement not covered" >                        downloader.setRequestHeader(header, headers[header]);</span>
+                    }
+                }
+&nbsp;
+                // create download object. This will throw an exception if URL is malformed
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                    var uri = Windows.Foundation.Uri(source);</span>
+<span class="cstat-no" title="statement not covered" >                    download = downloader.createDownload(uri, storageFile);</span>
+                } catch (e) {
+                    // so we handle this and call errorCallback
+<span class="cstat-no" title="statement not covered" >                    errorCallback(new FTErr(FTErr.INVALID_URL_ERR));</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var downloadOperation = download.startAsync();</span>
+                // update internal TransferOperation object with newly created promise
+<span class="cstat-no" title="statement not covered" >                fileTransferOps[downloadId].promise = downloadOperation;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                downloadOperation.then(<span class="fstat-no" title="function not covered" >function () {</span></span>
+&nbsp;
+                    // Update TransferOperation object with new state, delete promise property
+                    // since it is not actual anymore
+<span class="cstat-no" title="statement not covered" >                    var currentDownloadOp = fileTransferOps[downloadId];</span>
+<span class="cstat-no" title="statement not covered" >                    if (currentDownloadOp) {</span>
+<span class="cstat-no" title="statement not covered" >                        currentDownloadOp.state = FileTransferOperation.DONE;</span>
+<span class="cstat-no" title="statement not covered" >                        currentDownloadOp.promise = null;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    storageFile.renameAsync(fileName, Windows.Storage.CreationCollisionOption.replaceExisting).done(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        var nativeURI = storageFile.path.replace(appData.localFolder.path, 'ms-appdata:///local')</span>
+                        .replace(appData.temporaryFolder.path, 'ms-appdata:///temp')
+                        .replace(/\\/g, '/');
+&nbsp;
+                        // Passing null as error callback here because downloaded file should exist in any case
+                        // otherwise the error callback will be hit during file creation in another place
+<span class="cstat-no" title="statement not covered" >                        FileProxy.resolveLocalFileSystemURI(successCallback, null, [nativeURI]);</span>
+                    }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                        errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR, source, target, null, null, error));</span>
+                    });
+                }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var getTransferError = new WinJS.Promise(<span class="fstat-no" title="function not covered" >function (resolve) {</span></span>
+                        // Handle download error here. If download was cancelled,
+                        // message property will be specified
+<span class="cstat-no" title="statement not covered" >                        if (error.message === 'Canceled') {</span>
+<span class="cstat-no" title="statement not covered" >                            resolve(new FTErr(FTErr.ABORT_ERR, source, target, null, null, error));</span>
+                        } else <span class="cstat-no" title="statement not covered" >if (error &amp;&amp; error.number === HTTP_E_STATUS_NOT_MODIFIED) {</span>
+<span class="cstat-no" title="statement not covered" >                            resolve(new FTErr(FTErr.NOT_MODIFIED_ERR, source, target, 304, null, error));</span>
+                        } else {
+                            // in the other way, try to get response property
+<span class="cstat-no" title="statement not covered" >                            var response = download.getResponseInformation();</span>
+<span class="cstat-no" title="statement not covered" >                            if (!response) {</span>
+<span class="cstat-no" title="statement not covered" >                                resolve(new FTErr(FTErr.CONNECTION_ERR, source, target));</span>
+                            } else {
+<span class="cstat-no" title="statement not covered" >                                var reader = new Windows.Storage.Streams.DataReader(download.getResultStreamAt(0));</span>
+<span class="cstat-no" title="statement not covered" >                                reader.loadAsync(download.progress.bytesReceived).then(<span class="fstat-no" title="function not covered" >function (bytesLoaded) {</span></span>
+<span class="cstat-no" title="statement not covered" >                                    var payload = reader.readString(bytesLoaded);</span>
+<span class="cstat-no" title="statement not covered" >                                    resolve(new FTErr(FTErr.FILE_NOT_FOUND_ERR, source, target, response.statusCode, payload, error));</span>
+                                });
+                            }
+                        }
+                    });
+<span class="cstat-no" title="statement not covered" >                    getTransferError.then(<span class="fstat-no" title="function not covered" >function (fileTransferError) {</span></span>
+&nbsp;
+                        // Update TransferOperation object with new state, delete promise property
+                        // since it is not actual anymore
+<span class="cstat-no" title="statement not covered" >                        var currentDownloadOp = fileTransferOps[downloadId];</span>
+<span class="cstat-no" title="statement not covered" >                        if (currentDownloadOp) {</span>
+<span class="cstat-no" title="statement not covered" >                            currentDownloadOp.state = FileTransferOperation.CANCELLED;</span>
+<span class="cstat-no" title="statement not covered" >                            currentDownloadOp.promise = null;</span>
+                        }
+&nbsp;
+                        // Cleanup, remove incompleted file
+<span class="cstat-no" title="statement not covered" >                        storageFile.deleteAsync().then(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                            errorCallback(fileTransferError);</span>
+                        });
+                    });
+&nbsp;
+                }, <span class="fstat-no" title="function not covered" >function(evt) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var progressEvent = new ProgressEvent('progress', {</span>
+                        loaded: evt.progress.bytesReceived,
+                        total: evt.progress.totalBytesToReceive,
+                        target: evt.resultFile
+                    });
+                    // when bytesReceived == 0, BackgroundDownloader has not yet differentiated whether it could get file length or not,
+                    // when totalBytesToReceive == 0, BackgroundDownloader is unable to get file length
+<span class="cstat-no" title="statement not covered" >                    progressEvent.lengthComputable = (evt.progress.bytesReceived &gt; 0) &amp;&amp; (evt.progress.totalBytesToReceive &gt; 0);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    successCallback(progressEvent, { keepCallback: true });</span>
+                });
+            }, <span class="fstat-no" title="function not covered" >function(error) {</span>
+<span class="cstat-no" title="statement not covered" >                errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR, source, target, null, null, error));</span>
+            });
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var fileNotFoundErrorCallback = <span class="fstat-no" title="function not covered" >function(error) {</span></span>
+<span class="cstat-no" title="statement not covered" >            errorCallback(new FTErr(FTErr.FILE_NOT_FOUND_ERR, source, target, null, null, error));</span>
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        Windows.Storage.StorageFolder.getFolderFromPathAsync(path).then(downloadCallback, <span class="fstat-no" title="function not covered" >function (error) {</span></span>
+            // Handle non-existent directory
+<span class="cstat-no" title="statement not covered" >            if (error.number === -2147024894) {</span>
+<span class="cstat-no" title="statement not covered" >                var parent = path.substr(0, path.lastIndexOf('\\')),</span>
+                    folderNameToCreate = path.substr(path.lastIndexOf('\\') + 1);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                Windows.Storage.StorageFolder.getFolderFromPathAsync(parent).then(<span class="fstat-no" title="function not covered" >function(parentFolder) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    parentFolder.createFolderAsync(folderNameToCreate).then(downloadCallback, fileNotFoundErrorCallback);</span>
+                }, fileNotFoundErrorCallback);
+            } else {
+<span class="cstat-no" title="statement not covered" >                fileNotFoundErrorCallback();</span>
+            }
+        });
+    },
+&nbsp;
+    abort: <span class="fstat-no" title="function not covered" >function (successCallback, error, options) {</span>
+<span class="cstat-no" title="statement not covered" >        var fileTransferOpId = options[0];</span>
+&nbsp;
+        // Try to find transferOperation with id specified, and cancel its' promise
+<span class="cstat-no" title="statement not covered" >        var currentOp = fileTransferOps[fileTransferOpId];</span>
+<span class="cstat-no" title="statement not covered" >        if (currentOp) {</span>
+<span class="cstat-no" title="statement not covered" >            currentOp.state = FileTransferOperation.CANCELLED;</span>
+<span class="cstat-no" title="statement not covered" >            currentOp.promise &amp;&amp; currentOp.promise.cancel();</span>
+        } else <span class="cstat-no" title="statement not covered" >if (typeof fileTransferOpId !== 'undefined') {</span>
+            // Create the operation in cancelled state to be aborted right away
+<span class="cstat-no" title="statement not covered" >            fileTransferOps[fileTransferOpId] = new FileTransferOperation(FileTransferOperation.CANCELLED, null);</span>
+        }
+    }
+&nbsp;
+};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >require("cordova/exec/proxy").add("FileTransfer",module.exports);</span>
+&nbsp;
+&nbsp;</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a> at Sat Apr 22 2017 15:13:58 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>
